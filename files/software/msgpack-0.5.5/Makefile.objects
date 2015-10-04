@@ -1,0 +1,16 @@
+msgpack.lo: /vagrant/files/software/msgpack-0.5.5/msgpack.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/vagrant/files/software/msgpack-0.5.5 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /vagrant/files/software/msgpack-0.5.5/msgpack.c -o msgpack.lo 
+msgpack_pack.lo: /vagrant/files/software/msgpack-0.5.5/msgpack_pack.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/vagrant/files/software/msgpack-0.5.5 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /vagrant/files/software/msgpack-0.5.5/msgpack_pack.c -o msgpack_pack.lo 
+msgpack_unpack.lo: /vagrant/files/software/msgpack-0.5.5/msgpack_unpack.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/vagrant/files/software/msgpack-0.5.5 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /vagrant/files/software/msgpack-0.5.5/msgpack_unpack.c -o msgpack_unpack.lo 
+msgpack_class.lo: /vagrant/files/software/msgpack-0.5.5/msgpack_class.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/vagrant/files/software/msgpack-0.5.5 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /vagrant/files/software/msgpack-0.5.5/msgpack_class.c -o msgpack_class.lo 
+msgpack_convert.lo: /vagrant/files/software/msgpack-0.5.5/msgpack_convert.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/vagrant/files/software/msgpack-0.5.5 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /vagrant/files/software/msgpack-0.5.5/msgpack_convert.c -o msgpack_convert.lo 
+$(phplibdir)/msgpack.la: ./msgpack.la
+	$(LIBTOOL) --mode=install cp ./msgpack.la $(phplibdir)
+
+./msgpack.la: $(shared_objects_msgpack) $(MSGPACK_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_msgpack) $(MSGPACK_SHARED_LIBADD)
+

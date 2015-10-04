@@ -1,0 +1,6 @@
+deb http://mirrors.163.com/ubuntu/ precise main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ precise-updates main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ precise-security main restricted universe multiverse
+
+deb http://ppa.launchpad.net/ondrej/php5/ubuntu precise main
+deb-src http://ppa.launchpad.net/ondrej/php5/ubuntu precise main

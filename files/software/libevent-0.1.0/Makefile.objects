@@ -1,0 +1,8 @@
+libevent.lo: /vagrant/files/software/libevent-0.1.0/libevent.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/vagrant/files/software/libevent-0.1.0 $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /vagrant/files/software/libevent-0.1.0/libevent.c -o libevent.lo 
+$(phplibdir)/libevent.la: ./libevent.la
+	$(LIBTOOL) --mode=install cp ./libevent.la $(phplibdir)
+
+./libevent.la: $(shared_objects_libevent) $(LIBEVENT_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_libevent) $(LIBEVENT_SHARED_LIBADD)
+
