@@ -4,7 +4,9 @@ PHP Development environment with Vagrant
 You need to link to the Internet！
 ##clone
 `git clone git@github.com:lanffy/VagrantForPhp.git`
+
 `cd VagrantForPhp`
+
 `bash ./vagrantup.sh`
 
 ##详细步骤
